@@ -1,5 +1,14 @@
 package service;
 
-public class StudentService {
+public interface StudentService {
+
+  void addStudent();
   
+  void viewAllStudent();
+  
+  void searchStudentById();
+  
+  void updateStudent();
+  
+  void deleteStudent();
 }

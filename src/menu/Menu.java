@@ -1,5 +1,5 @@
 package menu;
-
+import java.util.*;
 public class Menu {
   public static void DisplayMenu() {
   System.out.println("  1.Add Student Data.");
@@ -9,4 +9,6 @@ public class Menu {
   System.out.println("  5.Exit.");
   System.out.println("==============================");
   }
+  Scanner sc = new Scanner(System.in);
+  int choise = sc.nextInt();
 }
