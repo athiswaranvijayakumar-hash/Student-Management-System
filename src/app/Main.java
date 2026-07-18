@@ -16,7 +16,12 @@ public class Main {
         case 1:
           studentService.addStudent();
           break;
-       
+        case 2:
+          studentService.viewAllStudent();
+          break;
+          case 3:
+            studentService.searchStudentById();
+            break;
         default:
           System.out.println("invalid choice.");
           break;

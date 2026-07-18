@@ -28,13 +28,38 @@ public class StudentServiceImpl implements StudentService {
       student.setDepartment(department);
       student.setEmail(email);
       student.setPhoneNumber(phoneNumber);
+      repository.addStudent(student);
       System.out.println("Student detail Add successfully.");
   }
   public void viewAllStudent(){
-
+     List<Student> students = repository.viewAllStudent();
+     if(students.isEmpty()){
+      System.out.println("Student list not found.");
+      return;
+     }
+     for(Student student : students){
+      System.out.println("---------------------------------------");
+      System.out.println("Id : " + student.getStudentId());
+      System.out.println("Name : " + student.getName());
+      System.out.println("Department : " + student.getDepartment());
+      System.out.println("Email : " + student.getEmail());
+      System.out.println("PhoneNumber : " + student.getPhoneNumber());
+     }
   }
   public void searchStudentById(){
-
+    System.out.print("Enter your Student Id : ");
+    String id = sc.nextLine();
+    Student student = repository.searchStudentById(id);
+    if(id == null) { 
+      System.out.println("Student Id not found. Please check again!");
+      return;
+    }
+    System.out.println("Id : " + student.getStudentId());
+    System.out.println("Name :  " + student.getName());
+    System.out.println("Department : " + student.getDepartment());
+    System.out.println("Email : " + student.getEmail());
+    System.out.println("PhoneNumber : " + student.getPhoneNumber());
+ 
   }
   public void updateStudent(){
 
