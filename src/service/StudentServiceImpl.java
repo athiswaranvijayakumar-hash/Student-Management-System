@@ -48,9 +48,9 @@ public class StudentServiceImpl implements StudentService {
   }
   public void searchStudentById(){
     System.out.print("Enter your Student Id : ");
-    String id = sc.nextLine();
-    Student student = repository.searchStudentById(id);
-    if(id == null) { 
+    String searchId = sc.nextLine();
+    Student student = repository.searchStudentById(searchId);
+    if(searchId == null) { 
       System.out.println("Student Id not found. Please check again!");
       return;
     }
@@ -62,9 +62,51 @@ public class StudentServiceImpl implements StudentService {
  
   }
   public void updateStudent(){
+    System.out.print("Enter Student ID to update: ");
+    String id = sc.nextLine();
 
-  }
+    Student student = repository.searchStudentById(id);
+
+    if (student == null) {
+        System.out.println("Student ID not found!");
+        return;
+    }
+
+    Student updateStudent = new Student();
+
+    updateStudent.setStudentId(id);
+
+    System.out.print("Enter New Name: ");
+    updateStudent.setName(sc.nextLine());
+
+    System.out.print("Enter New Department: ");
+    updateStudent.setDepartment(sc.nextLine());
+
+    System.out.print("Enter New Email: ");
+    updateStudent.setEmail(sc.nextLine());
+
+    System.out.print("Enter New Phone Number: ");
+    updateStudent.setPhoneNumber(sc.nextLine());
+
+    boolean updated = repository.updateStudent(updateStudent);
+
+    if (updated) {
+        System.out.println("Student updated successfully!");
+    } else {
+        System.out.println("Student update failed!");
+    }
+}
+
   public void deleteStudent(){
+    System.out.print("Enter student Id : ");
+    String id = sc.nextLine();
+    boolean delete = repository.deleteStudent(id);
+    if(delete){
+      System.out.println("Student data successfully deleted.");
+    }
+    else {
+      System.out.println("Student Id not found.please check again!");
+    }
 
   }
 }

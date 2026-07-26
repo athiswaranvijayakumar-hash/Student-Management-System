@@ -22,6 +22,15 @@ public class Main {
           case 3:
             studentService.searchStudentById();
             break;
+          case 4:
+            studentService.deleteStudent();
+            break;
+          case 5:
+            studentService.updateStudent();
+            break;
+          case 6:
+            System.out.println("Exit.");
+            return;
         default:
           System.out.println("invalid choice.");
           break;
